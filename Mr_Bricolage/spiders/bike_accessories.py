@@ -1,4 +1,5 @@
 import scrapy
+import requests
 from scrapy.loader import ItemLoader
 from ..items import BikeAccessoryItem
 
@@ -26,11 +27,13 @@ class BikeAccessoriesSpider(scrapy.Spider):
             yield response.follow(url=next_page, callback=self.parse)
 
     def parse_product(self, response):
-        for sel in response.css(".product-single"):
+        for sel in response.css("main"):
             l = ItemLoader(item=BikeAccessoryItem(), selector=sel)
-            l.add_css("title", "h1::text")
-            l.add_css("price", ".price p.price::text")
-            l.add_css("image_url", ".row .owl-item img::attr(src)")
-            #description
-
+            l.add_css("title", ".product-single h1::text")
+            l.add_css("price", ".product-single .price p.price::text")
+            l.add_css("image_url", ".product-single .row img::attr(src)")
+            l.add_css("serial_num", ".product-details .tab-pane#home  span")
+            description = sel.css(".product-details .tab-pane#home table td").getall()
+            separator = ", "
+            l.add_value("description", separator.join(description))
             yield l.load_item()
