@@ -44,17 +44,24 @@ ROBOTSTXT_OBEY = True
 #   'Accept-Language': 'en',
 #}
 
-# Enable or disable spider middlewares
-# See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    'Mr_Bricolage.middlewares.MrBricolageSpiderMiddleware': 543,
-#}
+# Splash configurations
+# SPLASH_URL = 'http://localhost:8050'
+# DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
+# HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
+# SPIDER_MIDDLEWARES = {
+#     'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
+# }
+# DOWNLOADER_MIDDLEWARES = {
+#     'scrapy_splash.SplashCookiesMiddleware': 723,
+#     'scrapy_splash.SplashMiddleware': 725,
+#     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+# }
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'Mr_Bricolage.middlewares.MrBricolageDownloaderMiddleware': 543,
-#}
+# DOWNLOADER_MIDDLEWARES = {
+#     'Mr_Bricolage.middlewares.MrBricolageDownloaderMiddleware': 543,
+# }
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -64,9 +71,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-    'Mr_Bricolage.pipelines.MrBricolagePipeline': 300,
-}
+# ITEM_PIPELINES = {
+#     'Mr_Bricolage.pipelines.MrBricolagePipeline': 300,
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
